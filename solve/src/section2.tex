@@ -1,0 +1,51 @@
+\section{社群识别与谱聚类}
+
+\subsection{数据分析}
+
+在进行社群识别之前，我们首先对数据进行一个粗略的分析。我们统计了每个子学科的节点数、任一端点位于学科内的边的数量、边的两个端点均属于该学科的边的数量及比例以及学科节点占总节点的比例。统计结果如表\ref{tab:Ratio}所示。
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccccc}
+    \toprule
+    Subject & Nodes & Edges & EdgesInSameSubject & EdgesRatio & NodesRatio\\ 
+    \midrule
+    Algebra & 894 & 6058 & 1939 & 0.32 & 0.18\\
+    AlgebraicGeometry & 70 & 303 & 100 & 0.33 & 0.01\\
+    AlgebraicTopology & 43 & 171 & 53 & 0.31 & 0.01\\
+    Analysis & 488 & 2708 & 972 & 0.36 & 0.10\\
+    CategoryTheory & 591 & 3351 & 1403 & 0.42 & 0.12\\
+    Combinatorics & 107 & 429 & 112 & 0.26 & 0.02\\
+    Computability & 18 & 66 & 15 & 0.23 & 0.00\\
+    Condensed & 25 & 121 & 33 & 0.27 & 0.01\\
+    Control & 25 & 112 & 28 & 0.25 & 0.01\\
+    Data & 576 & 3144 & 801 & 0.25 & 0.12\\
+    Dynamics & 23 & 95 & 16 & 0.17 & 0.00\\
+    FieldTheory & 52 & 292 & 71 & 0.24 & 0.01\\
+    Geometry & 80 & 311 & 109 & 0.35 & 0.02\\
+    GroupTheory & 119 & 649 & 157 & 0.24 & 0.02\\
+    InformationTheory & 1 & 1 & 0 & 0.00 & 0.00\\
+    LinearAlgebra & 233 & 1411 & 402 & 0.28 & 0.05\\
+    Logic & 50 & 383 & 55 & 0.14 & 0.01\\
+    MeasureTheory & 196 & 1001 & 350 & 0.35 & 0.04\\
+    ModelTheory & 29 & 118 & 41 & 0.35 & 0.01\\
+    NumberTheory & 149 & 643 & 168 & 0.26 & 0.03\\
+    Order & 209 & 1281 & 331 & 0.26 & 0.04\\
+    Probability & 61 & 221 & 85 & 0.38 & 0.01\\
+    RepresentationTheory & 15 & 83 & 18 & 0.22 & 0.00\\
+    RingTheory & 368 & 2169 & 638 & 0.29 & 0.07\\
+    SetTheory & 46 & 216 & 55 & 0.25 & 0.01\\
+    Topology & 442 & 2379 & 820 & 0.34 & 0.09\\
+    \bottomrule
+\end{tabular}
+\caption{Number of nodes, edges and edges in the same subject for each subject}
+\label{tab:Ratio}
+\end{table}
+
+我们知道，对于一张随机图，当NodeRatio较小时，EdgesRatio应大致为NodesRatio的一半，而实际上EdgesRatio远大于NodesRatio的一半，说明这张图中确实存在社群结构，且该结构一定程度上被学科分类所反映。我们下面尝试使用谱聚类的方法来找到这些社群。
+
+
+
+
+
+
