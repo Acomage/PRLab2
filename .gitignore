@@ -2,3 +2,4 @@
 /test/
 /TODO.md
 /.python-version
+/__pycache__/
