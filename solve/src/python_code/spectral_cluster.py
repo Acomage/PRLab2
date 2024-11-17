@@ -1,6 +1,10 @@
+from typing import Tuple
 from graph import Graph
 import numpy as np
 from sklearn.cluster import SpectralClustering
+from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
+import networkx as nx
+from networkx.algorithms.community import modularity
 
 G = Graph.load_from_json()
 nodes = np.array(list(G.nodes.keys()))
@@ -12,10 +16,28 @@ for node, children in G.nodes.items():
         adjacency_matrix[hash_nodes[node]][hash_nodes[child]] = 1
         adjacency_matrix[hash_nodes[child]][hash_nodes[node]] = 1
 
+
+def evaluate_clustering(
+    subjects: np.ndarray, labels: np.ndarray
+) -> Tuple[float, float, float]:
+    ari = adjusted_rand_score(subjects, labels)
+    nmi = normalized_mutual_info_score(subjects, labels)
+    G_nx = nx.from_numpy_array(adjacency_matrix)
+    communities = {}
+    for node, label in enumerate(labels):
+        communities.setdefault(label, []).append(node)
+    communities = list(communities.values())
+    mod = modularity(G_nx, communities)
+    return ari, nmi, mod
+
+
 if __name__ == "__main__":
-    n_clusters = 10
+    n_clusters = 26
     spectral = SpectralClustering(
         n_clusters=n_clusters, affinity="precomputed", assign_labels="kmeans"
     )
-    labels = spectral.fit_predict(adjacency_matrix)
-    print(labels)
+    labels = np.array(spectral.fit_predict(adjacency_matrix))
+    ari, nmi, mod = evaluate_clustering(subjects, labels)
+    print(f"ARI: {ari}, NMI: {nmi}, Modularity: {mod}")
+    # best_k, best_mod = select_best_k()
+    # print(f"Best k: {best_k}, Best Modularity: {best_mod}")
