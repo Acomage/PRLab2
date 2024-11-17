@@ -1,5 +1,5 @@
-/mathlib4/
-/test/
-/TODO.md
-/.python-version
-/__pycache__/
+/solve/test/
+/solve/TODO.md
+/solve/.python-version
+/solve/src/python_code/__pycache__/
+/solve/data/mathlib4/
