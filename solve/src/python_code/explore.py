@@ -1,6 +1,9 @@
 from graph import Graph
 from config import subjects
 from typing import Tuple, Dict
+import numpy as np
+import networkx as nx
+from networkx.algorithms.community import modularity
 
 
 def compute_subjects_data() -> (
@@ -69,5 +72,26 @@ def data_to_latex(
     return latex
 
 
+def compute_modularity() -> float:
+    G = Graph.load_from_json()
+    nodes = np.array(list(G.nodes.keys()))
+    subjects = np.array([node.split(".")[1] for node in G.nodes.keys()])
+    hash_nodes = {node: i for i, node in enumerate(G.nodes.keys())}
+    adjacency_matrix = np.zeros((len(nodes), len(nodes)))
+    for node, children in G.nodes.items():
+        for child in children:
+            adjacency_matrix[hash_nodes[node]][hash_nodes[child]] = 1
+            adjacency_matrix[hash_nodes[child]][hash_nodes[node]] = 1
+
+    G_nx = nx.from_numpy_array(adjacency_matrix)
+    communities = {}
+    for node, label in enumerate(subjects):
+        communities.setdefault(label, []).append(node)
+    communities = list(communities.values())
+    mod = modularity(G_nx, communities)
+    return mod
+
+
 if __name__ == "__main__":
-    print(data_to_latex(*compute_subjects_data()))
+    # print(data_to_latex(*compute_subjects_data()))
+    print(compute_modularity())
