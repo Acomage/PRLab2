@@ -1,5 +1,4 @@
 from typing import List, Dict
-from pyvis.network import Network
 import json
 from config import (
     save_json_path,
@@ -50,24 +49,6 @@ class Graph:
             if random.random() < probability:
                 new_nodes[node] = nodes[node]
         return Graph(new_nodes)
-
-    def show_graph_pyvis(self):
-        net = Network()
-        net.force_atlas_2based(
-            gravity=-1000,
-            central_gravity=0.01,
-            spring_length=150,
-            spring_strength=0.1,
-            damping=0.4,
-        )
-        for node in self.nodes:
-            color = subject_colors[node.split(".")[1]]
-            net.add_node(node, label="", color=color, group=color)
-        for node in self.nodes:
-            for child in self.nodes[node]:
-                if child in self.nodes:
-                    net.add_edge(node, child)
-        net.show(pyvis_output_path)
 
     def show_graph_networkx(self):
         import networkx as nx

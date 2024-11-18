@@ -283,8 +283,8 @@ OUTPUT /home/acomage/workspace/homework/libo/lab2/solve/build/main.toc
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 OUTPUT /home/acomage/workspace/homework/libo/lab2/solve/build/section1.aux
 INPUT ./section1.tex
-INPUT /home/acomage/workspace/homework/libo/lab2/solve/build/../img/data.pdf
-INPUT ../img/data.pdf
+INPUT /home/acomage/workspace/homework/libo/lab2/solve/build/../img/graph_new.pdf
+INPUT ../img/graph_new.pdf
 OUTPUT /home/acomage/workspace/homework/libo/lab2/solve/build/section2.aux
 INPUT ./section2.tex
 INPUT /home/acomage/workspace/homework/libo/lab2/solve/build/main.bbl

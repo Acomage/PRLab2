@@ -1,16 +1,16 @@
 # Fdb version 4
-["bibtex /home/acomage/workspace/homework/libo/lab2/solve/build/main"] 1731829632.70429 "/home/acomage/workspace/homework/libo/lab2/solve/build/main.aux" "/home/acomage/workspace/homework/libo/lab2/solve/build/main.bbl" "/home/acomage/workspace/homework/libo/lab2/solve/build/main" 1731832892.97611 0
+["bibtex /home/acomage/workspace/homework/libo/lab2/solve/build/main"] 1731829632.70429 "/home/acomage/workspace/homework/libo/lab2/solve/build/main.aux" "/home/acomage/workspace/homework/libo/lab2/solve/build/main.bbl" "/home/acomage/workspace/homework/libo/lab2/solve/build/main" 1731923839.72028 0
   "./references.bib" 1731772679.73938 194 be8340932c2c0977e09c88d95b8e8437 ""
-  "/home/acomage/workspace/homework/libo/lab2/solve/build/main.aux" 1731832892.35092 346 f52ca034f2df80baabea870f63852002 "lualatex"
-  "/home/acomage/workspace/homework/libo/lab2/solve/build/section1.aux" 1731832892.27392 1735 28ab33148191e50f29cad8081074572f "lualatex"
-  "/home/acomage/workspace/homework/libo/lab2/solve/build/section2.aux" 1731832892.31992 1478 985beb80925c9cdfb195e9daa6c71a6a "lualatex"
+  "/home/acomage/workspace/homework/libo/lab2/solve/build/main.aux" 1731923839.12161 346 f52ca034f2df80baabea870f63852002 "lualatex"
+  "/home/acomage/workspace/homework/libo/lab2/solve/build/section1.aux" 1731923839.04661 1735 28ab33148191e50f29cad8081074572f "lualatex"
+  "/home/acomage/workspace/homework/libo/lab2/solve/build/section2.aux" 1731923839.09461 1478 985beb80925c9cdfb195e9daa6c71a6a "lualatex"
   "/usr/share/texmf-dist/bibtex/bst/base/plain.bst" 1727349926 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   (generated)
   "/home/acomage/workspace/homework/libo/lab2/solve/build/main.bbl"
   "/home/acomage/workspace/homework/libo/lab2/solve/build/main.blg"
   (rewritten before read)
-["lualatex"] 1731832889.35488 "main.tex" "/home/acomage/workspace/homework/libo/lab2/solve/build/main.pdf" "main" 1731832892.97681 0
-  "../img/data.pdf" 1731768351.23727 267321 3b6f50ae445ce863f2e7231e2dc3dd27 ""
+["lualatex"] 1731923835.56392 "main.tex" "/home/acomage/workspace/homework/libo/lab2/solve/build/main.pdf" "main" 1731923839.721 0
+  "../img/graph_new.pdf" 1731923211.98986 2487415 47155e7c6c11e5d72360661da32b5d09 ""
   "/etc/texmf/tex/generic/config/language.dat" 1731506430.97285 6063 1f27f7f9952338024c7057e4fee8ab2a ""
   "/home/acomage/.texlive/texmf-var/luatex-cache/generic/fonts/otl/fandolkai-regular.luc" 1731769185.58304 844519 e92ef7d640e70cf2455c19ee0206b1df ""
   "/home/acomage/.texlive/texmf-var/luatex-cache/generic/fonts/otl/fandolsong-bold.luc" 1731769184.10207 849820 8ecb32a43e29a6819c7762d461cf28a1 ""
@@ -50,13 +50,13 @@
   "/home/acomage/.texlive/texmf-var/luatexja/ltj-cid-auto-adobe-japan1.luc" 1731769179.91217 1643739 9abc6acf23b2d764ea33a0724241bd8a ""
   "/home/acomage/.texlive/texmf-var/luatexja/ltj-jisx0208.luc" 1731769180.39816 93919 1f6dc76354e6e3b148c06f9f9254f22e ""
   "/home/acomage/.texlive/texmf-var/luatexja/ltj-kinsoku_default.luc" 1731769180.38416 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
-  "/home/acomage/workspace/homework/libo/lab2/solve/build/../img/data.pdf" 1731768351.23727 267321 3b6f50ae445ce863f2e7231e2dc3dd27 ""
-  "/home/acomage/workspace/homework/libo/lab2/solve/build/main.aux" 1731832892.35092 346 f52ca034f2df80baabea870f63852002 "lualatex"
+  "/home/acomage/workspace/homework/libo/lab2/solve/build/../img/graph_new.pdf" 1731923211.98986 2487415 47155e7c6c11e5d72360661da32b5d09 ""
+  "/home/acomage/workspace/homework/libo/lab2/solve/build/main.aux" 1731923839.12161 346 f52ca034f2df80baabea870f63852002 "lualatex"
   "/home/acomage/workspace/homework/libo/lab2/solve/build/main.bbl" 1731829632.81192 211 f8e752666f675a38a8633e7a223f29e8 "bibtex /home/acomage/workspace/homework/libo/lab2/solve/build/main"
-  "/home/acomage/workspace/homework/libo/lab2/solve/build/main.out" 1731832892.35292 594 b140a9f708dc32e6ca0cb8ed3272ded1 "lualatex"
-  "/home/acomage/workspace/homework/libo/lab2/solve/build/main.toc" 1731832892.35292 511 13f30b7c8c7ceb0083d3dcd921dc5aa5 "lualatex"
-  "/home/acomage/workspace/homework/libo/lab2/solve/build/section1.aux" 1731832892.27392 1735 28ab33148191e50f29cad8081074572f "lualatex"
-  "/home/acomage/workspace/homework/libo/lab2/solve/build/section2.aux" 1731832892.31992 1478 985beb80925c9cdfb195e9daa6c71a6a "lualatex"
+  "/home/acomage/workspace/homework/libo/lab2/solve/build/main.out" 1731923839.12361 594 b140a9f708dc32e6ca0cb8ed3272ded1 "lualatex"
+  "/home/acomage/workspace/homework/libo/lab2/solve/build/main.toc" 1731923839.12461 511 13f30b7c8c7ceb0083d3dcd921dc5aa5 "lualatex"
+  "/home/acomage/workspace/homework/libo/lab2/solve/build/section1.aux" 1731923839.04661 1735 28ab33148191e50f29cad8081074572f "lualatex"
+  "/home/acomage/workspace/homework/libo/lab2/solve/build/section2.aux" 1731923839.09461 1478 985beb80925c9cdfb195e9daa6c71a6a "lualatex"
   "/usr/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf" 1715286657 2238256 a1d4c3e26f216c7486041badf046bdab ""
   "/usr/share/texmf-dist/fonts/opentype/public/fandol/FandolSong-Bold.otf" 1727349926 5777588 59fd93102780a3ce9850880fda400c33 ""
   "/usr/share/texmf-dist/fonts/opentype/public/fandol/FandolSong-Regular.otf" 1727349926 4947904 c3561e47a49fba68a303574121385739 ""
@@ -278,7 +278,7 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1731506609.43674 5467607 1f3b9843102088c2a7136e28f005c5e4 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1731506557 12260609 9e675dfde5008c2202315c194f796344 ""
   "main.tex" 1731828916.4537 1297 8cf73647e3db7cdd3fad938384eea1d3 ""
-  "section1.tex" 1731829628.34603 2314 2cf505962aa5d1d971161803a3a0fd83 ""
+  "section1.tex" 1731923834.99871 2544 03eb5a62f68c1f162dfb13aee91f3c02 ""
   "section2.tex" 1731832888.314 2282 7ca9d982452e31c4692283e8745c7214 ""
   (generated)
   "/home/acomage/workspace/homework/libo/lab2/solve/build/main.aux"

@@ -7,7 +7,15 @@ mathlib_father_path = os.path.join(
     os.path.dirname(__file__), "../../data/mathlib4/mathlib4/"
 )
 save_json_path = os.path.join(os.path.dirname(__file__), "../../data/Json/graph.json")
+save_out_json_path = os.path.join(
+    os.path.dirname(__file__), "../../data/Json/graph_out.json"
+)
 pyvis_output_path = "solve/data/pyvis_output/graph.html"
+image_output_path = os.path.join(os.path.dirname(__file__), "../../img/")
+
+spectral_cluster_data_path = os.path.join(
+    os.path.dirname(__file__), "../../data/Json/spectral_cluster.json"
+)
 
 subjects = [
     "Algebra",
@@ -67,6 +75,7 @@ subject_colors = {
     "Topology": "#96dff7",
 }
 
+group_colors = {i: subject_colors[subject] for i, subject in enumerate(subjects)}
 
 subject_offset = {
     "Algebra": (1.5, -0.5),

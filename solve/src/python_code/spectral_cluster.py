@@ -5,6 +5,8 @@ from sklearn.cluster import SpectralClustering
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 import networkx as nx
 from networkx.algorithms.community import modularity
+from config import spectral_cluster_data_path
+import json
 
 G = Graph.load_from_json()
 nodes = np.array(list(G.nodes.keys()))
@@ -39,5 +41,6 @@ if __name__ == "__main__":
     labels = np.array(spectral.fit_predict(adjacency_matrix))
     ari, nmi, mod = evaluate_clustering(subjects, labels)
     print(f"ARI: {ari}, NMI: {nmi}, Modularity: {mod}")
-    # best_k, best_mod = select_best_k()
-    # print(f"Best k: {best_k}, Best Modularity: {best_mod}")
+    output_data = {node: int(label) for node, label in zip(nodes, labels)}
+    with open(spectral_cluster_data_path, "w") as file:
+        json.dump(output_data, file)
