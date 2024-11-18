@@ -1,36 +1,38 @@
 from graph_tool.all import (
     Graph,
-    graph_draw,
     minimize_blockmodel_dl,
-    minimize_nested_blockmodel_dl,
+    adjacency,
 )
 import json
 from config import save_out_json_path, subject_colors, image_output_path
+import numpy as np
+from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
+from networkx.algorithms.community import modularity
+import networkx as nx
+from typing import Tuple
 
 with open(save_out_json_path, "r") as file:
     nodes = json.load(file)
 G = Graph(nodes, hashed=True)
 
+adjacency_matrix = adjacency(G)
 node_hash = G.vp.ids
 
-vcolor = G.new_vp("string")
-for v in G.vertices():
-    vcolor[v] = subject_colors[node_hash[v].split(".")[1]]
-
-ecolor = G.new_ep("string")
-for v in G.vertices():
-    for e in v.out_edges():
-        ecolor[e] = vcolor[v]
-
-# def draw_graph():
-#     g = graph_draw(
-#         G,
-#         vertex_fill_color=vcolor,
-#         edge_color=ecolor,
-#         vertex_size=0.5,
-#         output_size=(1000, 1000),
-#         output=image_output_path + "graph.pdf"
-#     )
+def evaluate_clustering(
+    subjects: np.ndarray, labels: np.ndarray
+) -> Tuple[float, float, float]:
+    ari = adjusted_rand_score(subjects, labels)
+    nmi = normalized_mutual_info_score(subjects, labels)
+    G_nx = nx.from_numpy_array(adjacency_matrix)
+    communities = {}
+    for node, label in enumerate(labels):
+        communities.setdefault(label, []).append(node)
+    communities = list(communities.values())
+    mod = modularity(G_nx, communities)
+    return ari, nmi, mod
 
 state = minimize_blockmodel_dl(G)
+subjects = np.array([node_hash[v].split(".")[1] for v in G.vertices()])
+labels = np.array([state.get_blocks()[v] for v in G.vertices()])
+print(evaluate_clustering(subjects, labels))
 state.draw(vertex_size=0.5, output=image_output_path + "SBM.pdf")

@@ -38,7 +38,7 @@
     Topology& 442 & 2379 & 820 & 0.34 & 0.09\\
     \bottomrule
 \end{tabular}
-\caption{Number of nodes, edges and edges in the same subject for each subject}
+\caption{Some basic data for each subject}
 \label{tab:Ratio}
 \end{table}
 
@@ -50,12 +50,12 @@
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{../img/graph_spectral_cluster.pdf}
-    \caption{Dependency graph of Mathlib4}
+    \caption{Dependency graph of Mathlib4 colored by spectral clustering}
     \label{fig:clustering}
 \end{figure}
 
 对应的评价指标如表\ref{tab:score}所示。
-\begin{table}
+\begin{table}[H]
   \centering
   \begin{tabular}{lll}
     \toprule
@@ -64,9 +64,38 @@
     0.260 & 0.475 & 0.614\\
     \bottomrule
   \end{tabular}
-  \caption{Evaluation scores of the clustering}
+  \caption{Evaluation scores of spectral clustering}
   \label{tab:score}
 \end{table}
 
 较高的modularity表明聚类效果良好，Mathlib4中的数学概念之间确实有着非常明确的社群结构且该结构被谱聚类很好地捕捉了，但较为一般的ARI和NMI表明谱聚类的结果与学科分类并不完全一致，这是因为Mathlib4中的数学概念之间的依赖关系并不完全由学科决定，而是由数学概念之间的逻辑关系决定的，实际上考虑到使用谱聚类的modularity比按学科分类的modularity要高出9个百分点，我们认为谱聚类的结果与按学科分类的结果不完全一致是符合预期的。
+
+接下来我们使用graph\_tool库中的SBM模型来对Mathlib4进行社群识别。我们首先使用graph\_tool的minimize\_blockmodel\_dl函数来对Mathlib4进行社群识别，得到的结果如图\ref{fig:SBM}所示。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{../img/SBM.pdf}
+    \caption{Dependency graph of Mathlib4 colored by SBM model}
+    \label{fig:SBM}
+\end{figure}
+
+对应的评价指标如表\ref{tab:score2}所示。
+\begin{table}[H]
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    ARI & NMI & Modularity\\
+    \midrule
+    0.226 & 0.466 & 0.614\\
+    \bottomrule
+  \end{tabular}
+  \caption{Evaluation scores of the SBM model}
+  \label{tab:score2}
+\end{table}
+
+可以看到，SBM模型的modularity与谱聚类的modularity相同，而ARI和NMI稍低，这说明SBM模型的结果与谱聚类的结果基本一致，但是由于SBM模型的结果是由模型自身决定的，因此与学科分类的结果并不完全一致。
+
+
+
+
 
