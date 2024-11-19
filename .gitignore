@@ -4,3 +4,7 @@
 /solve/src/python_code/__pycache__/
 /solve/data/mathlib4/
 /.python-version
+/solve/img/*.pdf
+/lab2.pdf
+/solve/build/*
+!/solve/build/main.pdf
