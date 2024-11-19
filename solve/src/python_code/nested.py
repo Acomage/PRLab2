@@ -1,3 +1,7 @@
+"""
+这个文件基本就是stochastic_block_model.py的复制，因为没做代码复用，所以直接复制了一遍
+"""
+
 from graph_tool.all import (
     Graph,
     minimize_nested_blockmodel_dl,
@@ -18,6 +22,7 @@ G = Graph(nodes, hashed=True)
 adjacency_matrix = adjacency(G)
 node_hash = G.vp.ids
 
+
 def evaluate_clustering(
     subjects: np.ndarray, labels: np.ndarray
 ) -> Tuple[float, float, float]:
@@ -31,20 +36,11 @@ def evaluate_clustering(
     mod = modularity(G_nx, communities)
     return ari, nmi, mod
 
-state = minimize_nested_blockmodel_dl(G)
 
+state = minimize_nested_blockmodel_dl(G)
 subjects = np.array([node_hash[v].split(".")[1] for v in G.vertices()])
 labels = np.array([state.get_bs()[0][v] for v in G.vertices()])
 print(evaluate_clustering(subjects, labels))
-
-state.draw(vertex_size=0.5, output=image_output_path + "SBM_nested.png", out_size=(1000, 1000))
-
-# while True:
-#     state = minimize_nested_blockmodel_dl(G)
-#     subjects = np.array([node_hash[v].split(".")[1] for v in G.vertices()])
-#     labels = np.array([state.get_bs()[0][v] for v in G.vertices()])
-#     ari, nmi, mod = evaluate_clustering(subjects, labels)
-#     print(ari, nmi, mod)
-#     if mod > 0.6:
-#         state.draw(vertex_size=0.5, output=image_output_path + "SBM_nested.png")
-#         break
+state.draw(
+    vertex_size=0.5, output=image_output_path + "SBM_nested.pdf", out_size=(1000, 1000)
+)

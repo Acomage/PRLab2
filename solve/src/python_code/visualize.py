@@ -1,3 +1,7 @@
+"""
+这个文件用来可视化，包括使用学科分类对图着色和使用谱聚类的结果对图着色
+"""
+
 from graph_tool.all import (
     Graph,
     graph_draw,
@@ -65,5 +69,5 @@ def draw_spectral_cluster():
 
 
 if __name__ == "__main__":
-    # draw_origin()
+    draw_origin()
     draw_spectral_cluster()

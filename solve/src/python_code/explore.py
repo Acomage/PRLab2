@@ -1,3 +1,7 @@
+"""
+这个文件用于探索数据集的特点，包括每个学科的节点数、边数、边数占比、节点数占比，以及modularity
+"""
+
 from graph import Graph
 from config import subjects
 from typing import Tuple, Dict
@@ -19,14 +23,14 @@ def compute_subjects_data() -> (
     subjects_node_num = {subject: 0 for subject in subjects}
     subjects_edge_num = {subject: 0 for subject in subjects}
     subjects_edge_in_subject = {subject: 0 for subject in subjects}
-    for node, children in G.nodes.items():
+    for node, parents in G.nodes.items():
         subject = node.split(".")[1]
         subjects_node_num[subject] += 1
-        for child in children:
+        for parent in parents:
             subjects_edge_num[subject] += 1
-            child_subject = child.split(".")[1]
-            subjects_edge_num[child_subject] += 1
-            if child_subject == subject:
+            parent_subject = parent.split(".")[1]
+            subjects_edge_num[parent_subject] += 1
+            if parent_subject == subject:
                 subjects_edge_in_subject[subject] += 1
     subject_edge_ratio = {
         subject: subjects_edge_in_subject[subject] / subjects_edge_num[subject]
@@ -78,11 +82,10 @@ def compute_modularity() -> float:
     subjects = np.array([node.split(".")[1] for node in G.nodes.keys()])
     hash_nodes = {node: i for i, node in enumerate(G.nodes.keys())}
     adjacency_matrix = np.zeros((len(nodes), len(nodes)))
-    for node, children in G.nodes.items():
-        for child in children:
-            adjacency_matrix[hash_nodes[node]][hash_nodes[child]] = 1
-            adjacency_matrix[hash_nodes[child]][hash_nodes[node]] = 1
-
+    for node, parents in G.nodes.items():
+        for parent in parents:
+            adjacency_matrix[hash_nodes[node]][hash_nodes[parent]] = 1
+            adjacency_matrix[hash_nodes[parent]][hash_nodes[node]] = 1
     G_nx = nx.from_numpy_array(adjacency_matrix)
     communities = {}
     for node, label in enumerate(subjects):
@@ -93,5 +96,5 @@ def compute_modularity() -> float:
 
 
 if __name__ == "__main__":
-    # print(data_to_latex(*compute_subjects_data()))
+    print(data_to_latex(*compute_subjects_data()))
     print(compute_modularity())

@@ -1,3 +1,7 @@
+"""
+这个文件用于提取单个文件的依赖
+"""
+
 from typing import List
 from config import subjects
 
@@ -23,4 +27,3 @@ if __name__ == "__main__":
         os.path.dirname(__file__), "../../data/mathlib4/mathlib4/Mathlib/"
     )
     print(get_dependency(os.path.join(mathlib_path, "Algebra/Algebra/Basic.lean")))
-
