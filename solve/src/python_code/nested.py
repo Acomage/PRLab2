@@ -31,10 +31,20 @@ def evaluate_clustering(
     mod = modularity(G_nx, communities)
     return ari, nmi, mod
 
-state = minimize_nested_blockmodel_dl(G)
+# state = minimize_nested_blockmodel_dl(G)
 
 # subjects = np.array([node_hash[v].split(".")[1] for v in G.vertices()])
-# labels = np.array([state.get_blocks()[v] for v in G.vertices()])
+# labels = np.array([state.get_bs()[0][v] for v in G.vertices()])
 # print(evaluate_clustering(subjects, labels))
 
-state.draw(vertex_size=0.5, output=image_output_path + "SBM_nested.pdf")
+# state.draw(vertex_size=0.5, output=image_output_path + "SBM_nested.pdf")
+
+while True:
+    state = minimize_nested_blockmodel_dl(G)
+    subjects = np.array([node_hash[v].split(".")[1] for v in G.vertices()])
+    labels = np.array([state.get_bs()[0][v] for v in G.vertices()])
+    ari, nmi, mod = evaluate_clustering(subjects, labels)
+    print(ari, nmi, mod)
+    if mod > 0.6:
+        state.draw(vertex_size=0.5, output=image_output_path + "SBM_nested.pdf")
+        break
