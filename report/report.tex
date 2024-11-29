@@ -1,0 +1,76 @@
+\documentclass[
+    linespread = 1.25
+]{ctexart}
+\pagestyle{plain}
+\ctexset{
+    section/format = \Large\bfseries\raggedright,
+    section/number = {\chinese{section}、},
+    section/aftername = {\enskip},
+    abstractname = {\zihao{-2}摘\quad 要}
+}
+
+\usepackage[a4paper, lmargin=1in, rmargin=1in, tmargin=1in, bmargin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\graphicspath{ {./fig} }
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{algorithm2e}
+\SetAlgoInsideSkip{bigskip}
+\SetAlgorithmName{算法}{算法}{算法}
+\RestyleAlgo{ruled}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{tablefootnote}
+
+\title{\zihao{2}\textbf{模式识别实验二}}
+\author{\zihao{4}210810508 - 彭珂\\\texttt{1094451830@qq.com}
+\and \zihao{4}210810510 - 刘炎培\\\texttt{liu\_yanpei@outlook.com}
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+% \newpage
+
+\include{section1}
+\include{section2}
+\include{Appendix}
+
+% temporarily disable the bibliography for compilation efficiency
+
+% \bibliographystyle{plain}
+% \bibliography{references}
+
+\end{document}
