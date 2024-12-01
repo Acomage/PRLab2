@@ -13,7 +13,7 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\graphicspath{ {./fig} }
+% \graphicspath{ {./fig} }
 
 \usepackage{listings}
 \usepackage{color}
@@ -23,7 +23,7 @@
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \lstset{
-  frame=tb,
+  % frame=tb,
   language=Python,
   aboveskip=3mm,
   belowskip=3mm,
@@ -36,8 +36,8 @@
   commentstyle=\color{dkgreen},
   stringstyle=\color{mauve},
   breaklines=true,
-  breakatwhitespace=true,
-  tabsize=2
+  tabsize=2,
+  backgroundcolor=\color[RGB]{245,245,244},
 }
 
 \usepackage[hidelinks]{hyperref}
@@ -51,8 +51,10 @@
 \usepackage{multicol}
 \usepackage{longtable}
 \usepackage{tablefootnote}
+\usepackage[style=footnote-dw, backend=biber]{biblatex} % Use footnote-dw style
+\addbibresource{references.bib} % Load your .bib file
 
-\title{\zihao{2}\textbf{模式识别实验二}}
+\title{\zihao{2}\textbf{模式识别实验二：Mathlib4数学定理依赖\\关系的社群识别与基于图神经网络的分类实验}}
 \author{\zihao{4}210810508 - 彭珂\\\texttt{1094451830@qq.com}
 \and \zihao{4}210810510 - 刘炎培\\\texttt{liu\_yanpei@outlook.com}
 }
@@ -70,6 +72,7 @@
 \include{Appendix}
 
 % temporarily disable the bibliography for compilation efficiency
+% bib changed to footnotes
 
 % \bibliographystyle{plain}
 % \bibliography{references}
